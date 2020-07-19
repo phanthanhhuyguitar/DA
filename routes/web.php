@@ -22,16 +22,24 @@ Route::group([
     'as' => 'admin.'
 ],function (){
     Route::group([
-        'prefix' => 'category'
+        'prefix' => 'category',
+//        duoc chi dinh mot nhom controller admin
+        'namespace'=>'Admin',
     ],function (){
         /*category*/
-        Route::get('list','CategoryController@getList')->name('list');
-        Route::get('edit','CategoryController@getEdit')->name('edit');
-        Route::get('add','CategoryController@getAdd')->name('add');
+//        get de ta goi form sua ra va post giup ta gui data len
+        Route::get('list','CategoryController@getList')->name('category.list');
+
+        Route::get('edit/{id}','CategoryController@getEdit')->name('category.edit');
+        Route::post('edit/{id}','CategoryController@postEdit')->name('category.handle.edit');
+
+        Route::get('add','CategoryController@getAdd')->name('category.add');
+        Route::post('handle-add','CategoryController@postAdd')->name('category.handle.add');
     });
 
     Route::group([
-        'prefix' => 'type'
+        'prefix' => 'type',
+        'namespace'=>'Admin'
     ],function (){
         /*type*/
         Route::get('list','TypeController@getList')->name('list');
@@ -40,7 +48,8 @@ Route::group([
     });
 
     Route::group([
-        'prefix' => 'news'
+        'prefix' => 'news',
+        'namespace'=>'Admin'
     ],function (){
         /*news*/
         Route::get('list','NewsController@getList')->name('list');
@@ -49,7 +58,8 @@ Route::group([
     });
 
     Route::group([
-        'prefix' => 'slide'
+        'prefix' => 'slide',
+        'namespace'=>'Admin'
     ],function (){
         /*slide*/
         Route::get('list','SlideController@getList')->name('list');
@@ -58,7 +68,8 @@ Route::group([
     });
 
     Route::group([
-        'prefix' => 'user'
+        'prefix' => 'user',
+        'namespace'=>'Admin'
     ],function (){
         /*user*/
         Route::get('list','UserController@getList')->name('list');
