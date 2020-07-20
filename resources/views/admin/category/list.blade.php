@@ -10,14 +10,19 @@
                 </h1>
             </div>
             <!-- /.col-lg-12 -->
+            @if(session('thongbao'))
+                <div class="alert-success alert">
+                    {{session('thongbao')}}
+                </div>
+            @endif
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
-                <tr align="center">
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Slug</th>
-                    <th>Delete</th>
-                    <th>Edit</th>
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Slug</th>
+                    <th class="text-center">Delete</th>
+                    <th class="text-center">Edit</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,8 +31,8 @@
                     <td>{{$ct->id}}</td>
                     <td>{{$ct->Ten}}</td>
                     <td>{{$ct->TenKhongDau}}</td>
-                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/category/delete"> Delete</a></td>
-                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('admin.category.edit',['id'=>$ct->id])}}">Edit</a></td>
+                    <td class="center text-primary"><i class="far fa-edit"></i><a href="{{route('admin.category.delete',['id'=>$ct->id])}}"> Delete</a></td>
+                    <td class="center text-danger"><i class="far fa-trash-alt"></i><a style="margin-left: 3px" class="ml-3" href="{{route('admin.category.edit',['id'=>$ct->id])}}">Edit</a></td>
                 </tr>
                 @endforeach
                 </tbody>

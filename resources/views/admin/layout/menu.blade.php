@@ -27,18 +27,46 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+
             <li>
-                <a href="#"><i class="fa fa-cube fa-fw"></i> Product<span class="fa arrow"></span></a>
+                <a href="{{route('admin.type.list')}}"><i style="margin-right: 10px" class="far fa-sticky-note"></i>News Type<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List Product</a>
+                        <a href="{{route('admin.type.list')}}">List News Type</a>
                     </li>
                     <li>
-                        <a href="#">Add Product</a>
+                        <a href="{{route('admin.type.add')}}">Add News Type</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+
+            <li>
+                <a href="{{route('admin.news.list')}}"><i style="margin-right: 10px" class="far fa-newspaper"></i>News<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('admin.news.list')}}">List News</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.news.list')}}">Add News</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+            <li>
+                <a href="{{route('admin.slide.list')}}"><i style="margin-right: 10px" class="fas fa-sliders-h"></i>Slide<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('admin.slide.list')}}">List Slide</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.slide.add')}}">Add Slide</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
             <li>
                 <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">

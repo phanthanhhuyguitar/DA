@@ -27,7 +27,7 @@ Route::group([
         'namespace'=>'Admin',
     ],function (){
         /*category*/
-//        get de ta goi form sua ra va post giup ta gui data len
+//        get de ta goi form sua ra va post giup ta them gui data len
         Route::get('list','CategoryController@getList')->name('category.list');
 
         Route::get('edit/{id}','CategoryController@getEdit')->name('category.edit');
@@ -35,6 +35,8 @@ Route::group([
 
         Route::get('add','CategoryController@getAdd')->name('category.add');
         Route::post('handle-add','CategoryController@postAdd')->name('category.handle.add');
+
+        Route::get('delete/{id}','CategoryController@getDelete')->name('category.delete');
     });
 
     Route::group([
@@ -42,9 +44,15 @@ Route::group([
         'namespace'=>'Admin'
     ],function (){
         /*type*/
-        Route::get('list','TypeController@getList')->name('list');
-        Route::get('edit','TypeController@getEdit')->name('edit');
-        Route::get('add','TypeController@getAdd')->name('add');
+        Route::get('list','TypeController@getList')->name('type.list');
+
+        Route::get('edit/{id}','TypeController@getEdit')->name('type.edit');
+        Route::post('edit/{id}','TypeController@postEdit')->name('type.handle.edit');
+
+        Route::get('add','TypeController@getAdd')->name('type.add');
+        Route::post('handle-add','TypeController@postAdd')->name('type.handle.add');
+
+        Route::get('delete/{id}','TypeController@getDelete')->name('type.delete');
     });
 
     Route::group([
@@ -52,9 +60,15 @@ Route::group([
         'namespace'=>'Admin'
     ],function (){
         /*news*/
-        Route::get('list','NewsController@getList')->name('list');
-        Route::get('edit','NewsController@getEdit')->name('edit');
-        Route::get('add','NewsController@getAdd')->name('add');
+        Route::get('list','NewsController@getList')->name('news.list');
+
+        Route::get('edit/{id}','NewsController@getEdit')->name('news.edit');
+        Route::post('edit/{id}','NewsController@postEdit')->name('news.handle.edit');
+
+        Route::get('add','NewsController@getAdd')->name('news.add');
+        Route::post('handle-add','NewsController@postAdd')->name('news.handle.add');
+
+        Route::get('delete/{id}','NewsController@getDelete')->name('news.delete');
     });
 
     Route::group([
@@ -62,9 +76,16 @@ Route::group([
         'namespace'=>'Admin'
     ],function (){
         /*slide*/
-        Route::get('list','SlideController@getList')->name('list');
-        Route::get('edit','SlideController@getEdit')->name('edit');
-        Route::get('add','SlideController@getAdd')->name('add');
+
+        Route::get('list','SlideController@getList')->name('slide.list');
+
+        Route::get('edit/{id}','SlideController@getEdit')->name('slide.edit');
+        Route::post('edit/{id}','SlideController@postEdit')->name('slide.handle.edit');
+
+        Route::get('add','SlideController@getAdd')->name('slide.add');
+        Route::post('handle-add','SlideController@postAdd')->name('slide.handle.add');
+
+        Route::get('delete/{id}','SlideController@getDelete')->name('slide.delete');
     });
 
     Route::group([

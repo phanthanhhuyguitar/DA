@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Khóa Học Lập Trình Laravel Framework 5.x Tại Khoa Phạm">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Admin</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('admin-asset/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-
     <!-- MetisMenu CSS -->
     <link href="{{asset('admin-asset/bower_components/metisMenu/dist/metisMenu.min.css')}}" rel="stylesheet">
+
+    {{--fontawesome--}}
+    <link href="{{asset('admin-asset/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="{{asset('admin-asset/dist/css/sb-admin-2.css')}}" rel="stylesheet">

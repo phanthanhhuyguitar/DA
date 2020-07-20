@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Category
+                <h1 class="page-header">News
                     <small>Add</small>
                 </h1>
             </div>
@@ -13,12 +13,26 @@
             <div class="col-lg-7" style="padding-bottom:120px">
                 <form action="" method="POST">
                     <div class="form-group">
-                        <label>Category Parent</label>
-                        <select class="form-control">
-                            <option value="0">Please Choose Category</option>
-                            <option value="">Tin Tức</option>
+                        <label>Category</label>
+                        <select class="form-control" name="category">
+                            <option value="0">--- Root ---</option>
+                            @foreach($caTe as $ct)
+                                <option value="{{$ct->id}}">{{$ct->Ten}}</option>
+                            @endforeach
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label>News Type</label>
+                        <select class="form-control" name="newstype">
+                            <option value="0">--- Root ---</option>
+                            @foreach($tyPe as $tp)
+                                <option value="{{$tp->id}}">{{$tp->Ten}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
                     <div class="form-group">
                         <label>Category Name</label>
                         <input class="form-control" name="txtCateName" placeholder="Please Enter Category Name" />
@@ -44,8 +58,8 @@
                             <input name="rdoStatus" value="2" type="radio">Invisible
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-default">Category Add</button>
-                    <button type="reset" class="btn btn-default">Reset</button>
+                    <button type="submit" class="btn btn-success">Add</button>
+                    <button type="reset" class="btn btn-primary">Reset</button>
                     </form>
             </div>
         </div>

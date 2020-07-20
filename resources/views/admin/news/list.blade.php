@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Category
+                <h1 class="page-header">News
                     <small>List</small>
                 </h1>
             </div>
@@ -14,30 +14,40 @@
                 <thead>
                 <tr align="center">
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Category Parent</th>
-                    <th>Status</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Type</th>
+                    <th>Viewers</th>
+                    <th>Highlights</th>
                     <th>Delete</th>
                     <th>Edit</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($new as $ns)
                 <tr class="odd gradeX" align="center">
-                    <td>1</td>
-                    <td>Tin Tức</td>
-                    <td>None</td>
-                    <td>Hiện</td>
-                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+                    <td>{{$ns->id}}</td>
+                    <td>
+                        <p>{{$ns->TieuDe}}</p>
+                        <img width="100px" src="{{asset("admin-asset/upload/images/tin-tuc/$ns->Hinh")}}" alt="">
+                    </td>
+                    <td>{{$ns->TomTat}}</td>
+                    {{--tro theo ten ham trong model lien ket--}}
+                    <td>{{$ns->typeNews->categories->Ten}}</td>
+                    <td>{{$ns->typeNews->Ten}}</td>
+                    <td>{{$ns->SoLuotXem}}</td>
+                    <td>
+                        @if($ns->NoiBat==0)
+                            <i class="text-danger far fa-times-circle"></i>
+                        @else
+                            <i class="text-success far fa-check-circle"></i>
+                        @endif
+                    </td>
+                    <td class="center text-primary"><i class="far fa-edit"></i><a href="{{route('admin.news.delete',['id'=>$ns->id])}}"> Delete</a></td>
+                    <td class="center text-danger"><i class="far fa-trash-alt"></i><a style="margin-left: 3px" class="ml-3" href="{{route('admin.news.edit',['id'=>$ns->id])}}">Edit</a></td>
                 </tr>
-                <tr class="even gradeC" align="center">
-                    <td>2</td>
-                    <td>Bóng Đá</td>
-                    <td>Thể Thao</td>
-                    <td>Ẩn</td>
-                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-                </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
