@@ -72,6 +72,14 @@ Route::group([
     });
 
     Route::group([
+        'prefix' => 'comment',
+        'namespace'=>'Admin'
+    ],function (){
+        /*comment*/
+        Route::get('delete/{idc}~{idNews}','CommentController@getDelete')->name('comment.delete');
+    });
+
+    Route::group([
         'prefix' => 'slide',
         'namespace'=>'Admin'
     ],function (){
@@ -91,10 +99,18 @@ Route::group([
     Route::group([
         'prefix' => 'user',
         'namespace'=>'Admin'
-    ],function (){
+    ], function (){
         /*user*/
         Route::get('list','UserController@getList')->name('list');
         Route::get('edit','UserController@getEdit')->name('edit');
         Route::get('add','UserController@getAdd')->name('add');
     });
+
+    Route::group([
+        'prefix' => 'ajax',
+        'namespace' => 'Admin'
+        ], function (){
+            Route::get('type/{idCate}','AjaxController@getType')->name('ajax.type');
+        }
+    );
 });

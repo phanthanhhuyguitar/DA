@@ -41,7 +41,8 @@
 
 </div>
 <!-- /#wrapper -->
-
+<!--ckeditor-->
+<script src="{{asset('admin-asset/ckeditor/ckeditor.js')}}"></script>
 <!-- jQuery -->
 <script src="{{asset('admin-asset/bower_components/jquery/dist/jquery.min.js')}}"></script>
 
@@ -66,7 +67,7 @@
         });
     });
 </script>
-@yield('script')
+@stack('javascript')
 </body>
 
 </html>

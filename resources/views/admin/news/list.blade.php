@@ -10,6 +10,11 @@
                 </h1>
             </div>
             <!-- /.col-lg-12 -->
+            @if(session('thongbao'))
+                <div class="alert-success alert">
+                    {{session('thongbao')}}
+                </div>
+            @endif
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                 <tr align="center">
@@ -38,14 +43,15 @@
                     <td>{{$ns->typeNews->Ten}}</td>
                     <td>{{$ns->SoLuotXem}}</td>
                     <td>
-                        @if($ns->NoiBat==0)
+                        @if($ns->NoiBat == 0)
                             <i class="text-danger far fa-times-circle"></i>
-                        @else
+                        @endif
+                        @if($ns->NoiBat == 1)
                             <i class="text-success far fa-check-circle"></i>
                         @endif
                     </td>
-                    <td class="center text-primary"><i class="far fa-edit"></i><a href="{{route('admin.news.delete',['id'=>$ns->id])}}"> Delete</a></td>
-                    <td class="center text-danger"><i class="far fa-trash-alt"></i><a style="margin-left: 3px" class="ml-3" href="{{route('admin.news.edit',['id'=>$ns->id])}}">Edit</a></td>
+                    <td class="center text-danger"><i class="far fa-trash-alt"><a href="{{route('admin.news.delete',['id'=>$ns->id])}}"> Delete</a></td>
+                    <td class="center text-info"><i class="far fa-edit"></i></i><a style="margin-left: 3px" class="ml-3" href="{{route('admin.news.edit',['id'=>$ns->id])}}">Edit</a></td>
                 </tr>
                 @endforeach
                 </tbody>

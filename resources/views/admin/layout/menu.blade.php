@@ -48,7 +48,7 @@
                         <a href="{{route('admin.news.list')}}">List News</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.news.list')}}">Add News</a>
+                        <a href="{{route('admin.news.add')}}">Add News</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
