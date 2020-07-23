@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function getList()
     {
-        $user  = User::all();
+        $user  = User::paginate(5);
         $data = [];
         $data['user'] = $user;
 

@@ -11,7 +11,7 @@ class TypeController extends Controller
 {
     public function getList()
     {
-        $type = TypeNews::all();
+        $type = TypeNews::paginate(5);
         return view('admin.type.list',['tyPe'=>$type]);
     }
 

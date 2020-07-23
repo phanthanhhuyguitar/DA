@@ -2,64 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Khóa Học Lập Trình Laravel Framework 5.x Tại Khoa Phạm">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Admin</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="{{asset('admin-asset/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-    <!-- MetisMenu CSS -->
-    <link href="{{asset('admin-asset/bower_components/metisMenu/dist/metisMenu.min.css')}}" rel="stylesheet">
-
-    {{--fontawesome--}}
-    <link href="{{asset('admin-asset/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="{{asset('admin-asset/dist/css/sb-admin-2.css')}}" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="{{asset('admin-asset/bower_components/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-
+    <title>AdminLTE 3 | Dashboard 3</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{{asset('admin-asset/plugins/fontawesome-free/css/all.min.css')}}">
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{asset('admin-asset/dist-1/css/adminlte.min.css')}}">
     <!-- DataTables CSS -->
-    <link href="{{asset('admin-asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css')}}" rel="stylesheet">
-
+{{--    <link href="{{asset('admin-asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css')}}" rel="stylesheet">--}}
     <!-- DataTables Responsive CSS -->
-    <link href="{{asset('admin-asset/bower_components/datatables-responsive/css/dataTables.responsive.css')}}" rel="stylesheet">
+{{--    <link href="{{asset('admin-asset/bower_components/datatables-responsive/css/dataTables.responsive.css')}}" rel="stylesheet">--}}
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to to the body tag
+to get the desired effect
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
 
-<body>
+   <!-- Navbar -->
+      @include('admin.layout.navbar')
+   <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
 
-<div id="wrapper">
+    @include('admin.layout.sidebar')
 
-    @include('admin.layout.header')
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        @yield('content')
+    </div>
 
-    @yield('content')
+    <!-- Control Sidebar -->
 
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    @include('admin.layout.footer')
 </div>
-<!-- /#wrapper -->
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
 <!--ckeditor-->
 <script src="{{asset('admin-asset/ckeditor/ckeditor.js')}}"></script>
 <!-- jQuery -->
-<script src="{{asset('admin-asset/bower_components/jquery/dist/jquery.min.js')}}"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="{{asset('admin-asset/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="{{asset('admin-asset/bower_components/metisMenu/dist/metisMenu.min.js')}}"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="{{asset('admin-asset/dist/js/sb-admin-2.js')}}"></script>
-
+<script src="{{asset('admin-asset/plugins/jquery/jquery.min.js')}}"></script>
+<!-- Bootstrap -->
+<script src="{{asset('admin-asset/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- AdminLTE -->
+<script src="{{asset('admin-asset/dist-1/js/adminlte.js')}}"></script>
 <!-- DataTables JavaScript -->
-<script src="{{asset('admin-asset/bower_components/DataTables/media/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('admin-asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js')}}"></script>
+{{--<script src="{{asset('admin-asset/bower_components/DataTables/media/js/jquery.dataTables.min.js')}}"></script>--}}
+{{--<script src="{{asset('admin-asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js')}}"></script>--}}
 
-<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="{{asset('admin-asset/plugins/chart.js/Chart.min.js')}}"></script>
+<script src="{{asset('admin-asset/dist-1/js/demo.js')}}"></script>
+<script src="{{asset('admin-asset/dist-1/js/pages/dashboard3.js')}}"></script>
 <script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
@@ -69,5 +83,4 @@
 </script>
 @stack('javascript')
 </body>
-
 </html>

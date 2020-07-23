@@ -2,7 +2,7 @@
 @section('content')
 <!-- Page Content -->
 <div id="page-wrapper">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Category
@@ -37,6 +37,10 @@
                 @endforeach
                 </tbody>
             </table>
+            <hr>
+            <div class="row ml-3 my-3">
+                {{ $caTe->links() }}
+            </div>
         </div>
         <!-- /.row -->
     </div>

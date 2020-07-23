@@ -47,7 +47,7 @@
                     </div>
                     <div class="form-group">
                         <label>Title</label>
-                        <input class="form-control" name="title" placeholder="Please Enter Title" />
+                        <input class="form-control" name="title" placeholder="Please Enter Title">
                     </div>
                     <div class="form-group">
                         <label>Summary</label>
@@ -98,7 +98,7 @@
         });
     </script>
 
-{{--    Replace the <textarea id="editor1"> with a CKEditor--}}
+{{--Replace the <textarea id="editor1"> with a CKEditor--}}
 
     <script>
 

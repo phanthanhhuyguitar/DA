@@ -56,6 +56,10 @@
                 @endforeach
                 </tbody>
             </table>
+            <hr>
+            <div class="row ml-3 my-3">
+                {{ $new->links() }}
+            </div>
         </div>
         <!-- /.row -->
     </div>

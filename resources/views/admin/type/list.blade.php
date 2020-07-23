@@ -41,6 +41,10 @@
                 @endforeach
                 </tbody>
             </table>
+            <hr>
+            <div class="row ml-3 my-3">
+                {{ $tyPe->links() }}
+            </div>
         </div>
         <!-- /.row -->
     </div>

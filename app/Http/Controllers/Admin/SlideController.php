@@ -11,7 +11,7 @@ class SlideController extends Controller
 {
     public function getList()
     {
-        $slide  = Slider::all();
+        $slide  = Slider::paginate(5);
         return view('admin.slide.list',['slide'=>$slide]);
     }
 

@@ -13,7 +13,7 @@ class CategoryController extends Controller
 {
     public function getList()
     {
-        $cate = Categories::all();
+        $cate = Categories::paginate(5);
         return view('admin.category.list',['caTe'=>$cate]);
     }
 

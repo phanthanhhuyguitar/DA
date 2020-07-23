@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/layout', function () {
+    return view('admin.layout.index');
+});
 
 /*---------Login-----------*/
 Route::get('admin/login', 'UserController@loginAdmin')->name('admin.login');
@@ -23,14 +26,18 @@ Route::get('admin/login', 'UserController@loginAdmin')->name('admin.login');
 /*---------Index Dashboard-----------*/
 Route::group([
     'prefix' => 'admin',
-    'as' => 'admin.'
+    'as' => 'admin.',
+    //duoc chi dinh mot nhom controller admin
+    'namespace'=>'Admin'
 ],function (){
+    /*===========DASHBOARD============*/
+
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
     /*===========CATEGORY============*/
     Route::group([
-        'prefix' => 'category',
-//        duoc chi dinh mot nhom controller admin
-        'namespace'=>'Admin',
+        'prefix' => 'category'
+
     ],function (){
 
 //        get de ta goi form sua ra va post giup ta them gui data len
@@ -47,8 +54,7 @@ Route::group([
 
     /*===========TYPE============*/
     Route::group([
-        'prefix' => 'type',
-        'namespace'=>'Admin'
+        'prefix' => 'type'
     ],function (){
 
         Route::get('list','TypeController@getList')->name('type.list');
@@ -64,8 +70,7 @@ Route::group([
 
     /*===========NEWS============*/
     Route::group([
-        'prefix' => 'news',
-        'namespace'=>'Admin'
+        'prefix' => 'news'
     ],function (){
 
         Route::get('list','NewsController@getList')->name('news.list');
@@ -82,7 +87,6 @@ Route::group([
     /*===========COMMENT============*/
     Route::group([
         'prefix' => 'comment',
-        'namespace'=>'Admin'
     ],function (){
 
         Route::get('delete/{idc}~{idNews}','CommentController@getDelete')->name('comment.delete');
@@ -90,8 +94,7 @@ Route::group([
 
     /*===========SLIDER============*/
     Route::group([
-        'prefix' => 'slide',
-        'namespace'=>'Admin'
+        'prefix' => 'slide'
     ],function (){
 
         Route::get('list','SlideController@getList')->name('slide.list');
@@ -107,8 +110,7 @@ Route::group([
 
     /*===========USER============*/
     Route::group([
-        'prefix' => 'user',
-        'namespace'=>'Admin'
+        'prefix' => 'user'
     ], function (){
 
         Route::get('list','UserController@getList')->name('user.list');
@@ -124,8 +126,7 @@ Route::group([
 
     /*===========AJAX============*/
     Route::group([
-        'prefix' => 'ajax',
-        'namespace' => 'Admin'
+        'prefix' => 'ajax'
         ], function (){
 
             Route::get('type/{idCate}','AjaxController@getType')->name('ajax.type');
