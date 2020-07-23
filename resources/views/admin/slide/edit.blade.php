@@ -5,48 +5,49 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Category
+                <h1 class="page-header">Slide
                     <small>Edit</small>
                 </h1>
             </div>
             <!-- /.col-lg-12 -->
-            <div class="col-lg-7" style="padding-bottom:120px">
-                <form action="" method="POST">
+            <div class="col-12" style="padding-bottom:120px">
+                @if(count($errors) > 0)
+                    <div class="alert alert-danger">
+                        @foreach($errors -> all() as $err)
+                            {{$err}}<br>
+                        @endforeach
+                    </div>
+                @endif
+
+                @if(session('thongbao'))
+                    <div class="alert alert-success">
+                        {{session('thongbao')}}
+                    </div>
+                @endif
+                <form action="{{route('admin.slide.handle.edit', ['id'=>$slide->id])}}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
-                        <label>Category Parent</label>
-                        <select class="form-control">
-                            <option value="0">Please Choose Category</option>
-                            <option value="">Tin Tức</option>
-                        </select>
+                        <label>Name</label>
+                        <input class="form-control" value="{{$slide->Ten}}" name="name" placeholder="Please Enter Name">
                     </div>
                     <div class="form-group">
-                        <label>Category Name</label>
-                        <input class="form-control" name="txtCateName" placeholder="Please Enter Category Name" />
+                        <label>Content</label>
+                        <textarea name="post_content_1"  id="post_content_1" rows="10" cols="150" class="form-control" rows="150">{{$slide->NoiDung}}</textarea>
                     </div>
+
                     <div class="form-group">
-                        <label>Category Order</label>
-                        <input class="form-control" name="txtOrder" placeholder="Please Enter Category Order" />
+                        <label>Link</label>
+                        <input type="text" class="form-control" value="{{$slide->link}}" name="link" placeholder="Please Enter Link">
                     </div>
+
                     <div class="form-group">
-                        <label>Category Keywords</label>
-                        <input class="form-control" name="txtOrder" placeholder="Please Enter Category Keywords" />
+                        <label>Image</label>
+                        <p><img width="400px" src="{{asset("upload/slide/$slide->Hinh")}}" alt=""></p>
+                        <input class="form-control" type="file" name="image">
                     </div>
-                    <div class="form-group">
-                        <label>Category Description</label>
-                        <textarea class="form-control" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Category Status</label>
-                        <label class="radio-inline">
-                            <input name="rdoStatus" value="1" checked="" type="radio">Visible
-                        </label>
-                        <label class="radio-inline">
-                            <input name="rdoStatus" value="2" type="radio">Invisible
-                        </label>
-                    </div>
-                    <button type="submit" class="btn btn-default">Category Edit</button>
-                    <button type="reset" class="btn btn-default">Reset</button>
-                    <form>
+                    <button type="submit" class="btn btn-success">Edit</button>
+                    <button type="reset" class="btn btn-primary">Reset</button>
+                </form>
             </div>
         </div>
         <!-- /.row -->
@@ -55,3 +56,10 @@
 </div>
 <!-- /#page-wrapper -->
 @endsection
+@push('javascript')
+    <script>
+        // instance, using default configuration.
+        CKEDITOR.replace( 'post_content' );
+        CKEDITOR.replace( 'post_content_1' );
+    </script>
+@endpush

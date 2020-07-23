@@ -15,7 +15,7 @@
                     {{session('thongbao')}}
                 </div>
             @endif
-            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+            <table class="table table-striped table-hover" id="dataTables-example">
                 <thead>
                 <tr align="center">
                     <th>ID</th>
@@ -35,7 +35,7 @@
                     <td>{{$ns->id}}</td>
                     <td>
                         <p>{{$ns->TieuDe}}</p>
-                        <img width="100px" src="{{asset("admin-asset/upload/images/tin-tuc/$ns->Hinh")}}" alt="">
+                        <img width="100px" src="{{asset("upload/tintuc/$ns->Hinh")}}" alt="">
                     </td>
                     <td>{{$ns->TomTat}}</td>
                     {{--tro theo ten ham trong model lien ket--}}
@@ -50,8 +50,8 @@
                             <i class="text-success far fa-check-circle"></i>
                         @endif
                     </td>
-                    <td class="center text-danger"><i class="far fa-trash-alt"><a href="{{route('admin.news.delete',['id'=>$ns->id])}}"> Delete</a></td>
-                    <td class="center text-info"><i class="far fa-edit"></i></i><a style="margin-left: 3px" class="ml-3" href="{{route('admin.news.edit',['id'=>$ns->id])}}">Edit</a></td>
+                    <td class="center text-danger"><i class="far fa-trash-alt"></i><a style="margin-left: 3px" href="{{route('admin.news.delete',['id'=>$ns->id])}}">Delete</a></td>
+                    <td class="center text-info"><i class="far fa-edit"></i><a style="margin-left: 3px" class="ml-3" href="{{route('admin.news.edit',['id'=>$ns->id])}}">Edit</a></td>
                 </tr>
                 @endforeach
                 </tbody>
