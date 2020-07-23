@@ -18,15 +18,15 @@
             <table class="table table-striped table-hover" id="dataTables-example">
                 <thead>
                 <tr align="center">
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Type</th>
-                    <th>Viewers</th>
-                    <th>Highlights</th>
-                    <th>Delete</th>
-                    <th>Edit</th>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Title</th>
+                    <th class="text-center">Description</th>
+                    <th class="text-center">Category</th>
+                    <th class="text-center">Type</th>
+                    <th class="text-center">Viewers</th>
+                    <th class="text-center">Highlights</th>
+                    <th class="text-center">Delete</th>
+                    <th class="text-center">Edit</th>
                 </tr>
                 </thead>
                 <tbody>

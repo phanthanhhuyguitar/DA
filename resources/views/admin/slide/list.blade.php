@@ -16,15 +16,15 @@
                 </div>
             @endif
             <table class="table table-striped table-hover" id="dataTables-example">
-                <thead>
+                <thead class="thead-list">
                 <tr align="center">
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Content</th>
-                    <th>Image</th>
-                    <th>Link</th>
-                    <th>Delete</th>
-                    <th>Edit</th>
+                    <th class="col" class="text-center">ID</th>
+                    <th class="col" class="text-center">Name</th>
+                    <th class="col" class="text-center">Content</th>
+                    <th class="col" class="text-center">Image</th>
+                    <th class="col" class="text-center">Link</th>
+                    <th class="col" class="text-center">Delete</th>
+                    <th class="col" class="text-center">Edit</th>
                 </tr>
                 </thead>
                 <tbody>

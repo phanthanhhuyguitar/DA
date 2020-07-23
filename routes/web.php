@@ -12,21 +12,27 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Model\Categories;
 Route::get('/', function () {
     return view('welcome');
 });
 
+/*---------Login-----------*/
+Route::get('admin/login', 'UserController@loginAdmin')->name('admin.login');
+
+
+/*---------Index Dashboard-----------*/
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.'
 ],function (){
+
+    /*===========CATEGORY============*/
     Route::group([
         'prefix' => 'category',
 //        duoc chi dinh mot nhom controller admin
         'namespace'=>'Admin',
     ],function (){
-        /*category*/
+
 //        get de ta goi form sua ra va post giup ta them gui data len
         Route::get('list','CategoryController@getList')->name('category.list');
 
@@ -39,11 +45,12 @@ Route::group([
         Route::get('delete/{id}','CategoryController@getDelete')->name('category.delete');
     });
 
+    /*===========TYPE============*/
     Route::group([
         'prefix' => 'type',
         'namespace'=>'Admin'
     ],function (){
-        /*type*/
+
         Route::get('list','TypeController@getList')->name('type.list');
 
         Route::get('edit/{id}','TypeController@getEdit')->name('type.edit');
@@ -55,11 +62,12 @@ Route::group([
         Route::get('delete/{id}','TypeController@getDelete')->name('type.delete');
     });
 
+    /*===========NEWS============*/
     Route::group([
         'prefix' => 'news',
         'namespace'=>'Admin'
     ],function (){
-        /*news*/
+
         Route::get('list','NewsController@getList')->name('news.list');
 
         Route::get('edit/{id}','NewsController@getEdit')->name('news.edit');
@@ -71,19 +79,20 @@ Route::group([
         Route::get('delete/{id}','NewsController@getDelete')->name('news.delete');
     });
 
+    /*===========COMMENT============*/
     Route::group([
         'prefix' => 'comment',
         'namespace'=>'Admin'
     ],function (){
-        /*comment*/
+
         Route::get('delete/{idc}~{idNews}','CommentController@getDelete')->name('comment.delete');
     });
 
+    /*===========SLIDER============*/
     Route::group([
         'prefix' => 'slide',
         'namespace'=>'Admin'
     ],function (){
-        /*slide*/
 
         Route::get('list','SlideController@getList')->name('slide.list');
 
@@ -96,20 +105,29 @@ Route::group([
         Route::get('delete/{id}','SlideController@getDelete')->name('slide.delete');
     });
 
+    /*===========USER============*/
     Route::group([
         'prefix' => 'user',
         'namespace'=>'Admin'
     ], function (){
-        /*user*/
-        Route::get('list','UserController@getList')->name('list');
-        Route::get('edit','UserController@getEdit')->name('edit');
-        Route::get('add','UserController@getAdd')->name('add');
+
+        Route::get('list','UserController@getList')->name('user.list');
+
+        Route::get('edit/{id}','UserController@getEdit')->name('user.edit');
+        Route::post('edit/{id}','UserController@postEdit')->name('user.handle.edit');
+
+        Route::get('add','UserController@getAdd')->name('user.add');
+        Route::post('handle-add','UserController@postAdd')->name('user.handle.add');
+
+        Route::get('delete/{id}','UserController@getDelete')->name('user.delete');
     });
 
+    /*===========AJAX============*/
     Route::group([
         'prefix' => 'ajax',
         'namespace' => 'Admin'
         ], function (){
+
             Route::get('type/{idCate}','AjaxController@getType')->name('ajax.type');
         }
     );

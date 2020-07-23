@@ -18,12 +18,12 @@
             <table class="table table-striped table-hover" id="dataTables-example">
                 <thead>
                 <tr align="center">
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Slug</th>
-                    <th>Category</th>
-                    <th>Delete</th>
-                    <th>Edit</th>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Slug</th>
+                    <th class="text-center">Category</th>
+                    <th class="text-center">Delete</th>
+                    <th class="text-center">Edit</th>
                 </tr>
                 </thead>
                 <tbody>
