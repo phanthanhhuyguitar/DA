@@ -111,8 +111,31 @@
                 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
             </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i class="fas fa-sign-out-alt"></i></a>
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-user"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <div class="dropdown-divider"></div>
+
+                <a href="{{route('admin.profile')}}" class="dropdown-item">
+                    <i class="far fa-address-card"></i>
+                        {{Auth::user()->name}} | Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                    <i class="fas fa-list-ul"></i> Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="{{route('admin.user.edit', Auth::user()->id)}}" class="dropdown-item">
+                    <i class="fas fa-cogs"></i> Setting
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="{{route('admin.logout')}}" class="dropdown-item">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+
+            </div>
         </li>
     </ul>
 </nav>

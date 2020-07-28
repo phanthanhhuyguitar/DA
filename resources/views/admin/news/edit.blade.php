@@ -147,7 +147,7 @@
         $(document).ready(function () {
             $("#caTe").change(function () {
                 var idCategory = $(this).val();//gan thanh id cua cate
-                var url = "admin/ajax/type." + idCategory;
+                var url = "/admin/ajax/type/" + idCategory;
                 $.get(url, function (data) {
                     $('#news').html(data);
                 });

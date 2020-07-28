@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Model\Slider;
-use App\Model\User;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;//dung login laravel
 
 class UserController extends Controller
 {
@@ -107,5 +108,43 @@ class UserController extends Controller
         $user->delete();
 
         return redirect(route('admin.user.list'))->with('thongbao','Xoa thanh cong');
+    }
+
+    public function loginAdmin()
+    {
+        return view('admin.login.index');
+    }
+
+    public function handleLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required|min:3|max:32'
+        ],
+        [
+            'email.required' => 'Ban chua nhap email',
+            'password.required' => 'Ban chua nhap password',
+            'password.min' => 'Mat khau toi thieu 3 ky tu',
+            'password.max' => 'Mat khau toi da 32 ki tu',
+        ]);
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            $user = User::whereemail($request->email)->first();
+            Auth::login($user);
+            return redirect(route('admin.dashboard'));
+        } else{
+            return redirect(route('admin.login'))->with('thongbao','Email or Password khong chinh xac');
+        }
+    }
+
+    public function profileAdmin()
+    {
+        return view('admin.profile.index');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect(route('admin.login'));
+
     }
 }

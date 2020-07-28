@@ -22,7 +22,7 @@
                     <th class="col" class="text-center">Name</th>
                     <th class="col" class="text-center">Content</th>
                     <th class="col" class="text-center">Image</th>
-                    <th class="col" class="text-center">Link</th>
+                    <th class="col" class="text-center">Category</th>
                     <th class="col" class="text-center">Delete</th>
                     <th class="col" class="text-center">Edit</th>
                 </tr>
@@ -30,13 +30,13 @@
                 <tbody>
                 @foreach($slide as $sl )
                 <tr class="odd gradeX" align="center">
-                    <td>{{$sl->id}}</td>
+                    <th scope="row">{{$sl->id}}</th>
                     <td>{{$sl->Ten}}</td>
                     <td>{{$sl->NoiDung}}</td>
                     <td>
-                        <img width="450px" src="{{asset("upload/slide/$sl->Hinh")}}" alt="">
+                        <img width="350px" src="{{asset("upload/slide/$sl->Hinh")}}" alt="">
                     </td>
-                    <td>{{$sl->link}}</td>
+                    <td>{{$sl->theloai}}</td>
                     <td class="center text-danger"><i class="far fa-trash-alt"></i><a style="margin-left: 3px" href="{{route('admin.slide.delete',['id'=>$sl->id])}}">Delete</a></td>
                     <td class="center text-primary"><i class="far fa-edit"></i><a style="margin-left: 3px" href="{{route('admin.slide.edit',['id'=>$sl->id])}}">Edit</a></td>
                 </tr>

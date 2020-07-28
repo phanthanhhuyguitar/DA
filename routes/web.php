@@ -15,20 +15,28 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/layout', function () {
-    return view('admin.layout.index');
-});
 
 /*---------Login-----------*/
-Route::get('admin/login', 'UserController@loginAdmin')->name('admin.login');
+
+//Route::group([
+//    'prefix' => 'admin',
+//    'as' => 'admin.',
+//    //duoc chi dinh mot nhom controller admin
+//    'namespace'=>'Admin'
+//],function (){
+    Route::get('admin/login', 'Admin\UserController@loginAdmin')->name('admin.login');
+    Route::post('admin/handle-login','Admin\UserController@handleLogin')->name('admin.handleLogin');
+    Route::get('admin/logout', 'Admin\UserController@logout')->name('admin.logout');
+//});
 
 
 /*---------Index Dashboard-----------*/
 Route::group([
     'prefix' => 'admin',
+    'middleware' => 'check.admin.login',
     'as' => 'admin.',
     //duoc chi dinh mot nhom controller admin
-    'namespace'=>'Admin'
+    'namespace'=>'Admin',
 ],function (){
     /*===========DASHBOARD============*/
 
@@ -122,6 +130,9 @@ Route::group([
         Route::post('handle-add','UserController@postAdd')->name('user.handle.add');
 
         Route::get('delete/{id}','UserController@getDelete')->name('user.delete');
+
+
+        Route::get('profile', 'UserController@profileAdmin')->name('profile');
     });
 
     /*===========AJAX============*/
@@ -133,3 +144,12 @@ Route::group([
         }
     );
 });
+
+/*===========PAGES============*/
+Route::get('trang-chu', 'PagesController@home')->name('home');
+Route::get('blog', 'PagesController@blog')->name('blog');
+Route::get('lien-he', 'PagesController@contact')->name('contact');
+Route::get('loai-tin/{id}/{TenKhongDau}.html', 'PagesController@typeNews')->name('typeNews');
+Route::get('the-loai/{id}/{TenKhongDau}.html', 'PagesController@category')->name('category');
+Route::get('tin-tuc', 'PagesController@new')->name('new');
+

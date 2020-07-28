@@ -75,9 +75,9 @@ class SlideController extends Controller
             ]);
         $slide = Slider::find($id);
         $slide->Ten = $request->name;
-        $slide->NoiDung = $request->post_content_1;
-        if($request->has('link'))
-            $slide->link = $request->link;
+        $slide->NoiDung = strip_tags($request->post_content_1);
+        if($request->has('category'))
+            $slide->theloai = $request->category;
 
         if($request->hasFile('image')) {
             $file = $request->file('image');

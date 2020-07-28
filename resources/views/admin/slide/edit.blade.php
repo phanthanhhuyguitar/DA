@@ -34,10 +34,9 @@
                         <label>Content</label>
                         <textarea name="post_content_1"  id="post_content_1" rows="10" cols="150" class="form-control" rows="150">{{$slide->NoiDung}}</textarea>
                     </div>
-
                     <div class="form-group">
-                        <label>Link</label>
-                        <input type="text" class="form-control" value="{{$slide->link}}" name="link" placeholder="Please Enter Link">
+                        <label>Category</label>
+                        <input type="text" class="form-control" name="category" value="{{$slide->theloai}}" placeholder="Please Enter Category">
                     </div>
 
                     <div class="form-group">

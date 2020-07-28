@@ -72,7 +72,7 @@ class NewsController extends Controller
         }
 
         $news->save();
-        return redirect(route('admin.news.add'))->with('thongbao','Them tin thanh cong');
+        return redirect(route('admin.news.list'))->with('thongbao','Them tin thanh cong');
     }
 
     public function getEdit($id)
@@ -89,7 +89,7 @@ class NewsController extends Controller
         $this->validate($request,
             [
                 'typenews' => 'required',
-                'title' => 'required|min:3|unique:tintuc,TieuDe'.$id,
+                'title' => 'required|min:3|unique:tintuc,TieuDe',
                 'post_content' => 'required', //tom tat
                 'post_content_1' => 'required' //noi dung
             ],
@@ -103,8 +103,8 @@ class NewsController extends Controller
             ]);
         $news->TieuDe = $request->title;
         $news->TieuDeKhongDau = changeTitle($request->title);
-        $news->idLoaiTin = $request->typenews;
         $news->TomTat = $request->post_content;
+        $news->idLoaiTin = $request->typenews;
         $news->NoiDung = $request->post_content_1;
         $news->NoiBat = $request->highlights;
 
@@ -124,7 +124,7 @@ class NewsController extends Controller
             $news->Hinh = $image;
         }
         $news->save();
-        return redirect(route('admin.news.edit',['id'=>$id]))->with('thongbao','Sua thanh cong');
+        return redirect(route('admin.news.list', ['id'=>$id]))->with('thongbao','Sua thanh cong');
 
 
     }

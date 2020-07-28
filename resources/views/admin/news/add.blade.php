@@ -18,12 +18,6 @@
                         @endforeach
                     </div>
                 @endif
-
-                @if(session('thongbao'))
-                    <div class="alert alert-success">
-                        {{session('thongbao')}}
-                    </div>
-                @endif
                 <form action="{{route('admin.news.handle.add')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
@@ -90,16 +84,18 @@
         $(document).ready(function () {
             $("#caTe").change(function () {
                 var idCategory = $(this).val();//gan thanh id cua cate
-                var url = "admin/ajax/type." + idCategory;
+                var url = "/admin/ajax/type/" + idCategory;
                $.get(url, function (data) {
                     $('#news').html(data);
                 });
-             });
+
+            });
+
         });
     </script>
-
+@endpush
 {{--Replace the <textarea id="editor1"> with a CKEditor--}}
-
+@push('javascript')
     <script>
 
         // instance, using default configuration.

@@ -14,10 +14,6 @@
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('admin-asset/dist-1/css/adminlte.min.css')}}">
-    <!-- DataTables CSS -->
-{{--    <link href="{{asset('admin-asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css')}}" rel="stylesheet">--}}
-    <!-- DataTables Responsive CSS -->
-{{--    <link href="{{asset('admin-asset/bower_components/datatables-responsive/css/dataTables.responsive.css')}}" rel="stylesheet">--}}
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -65,9 +61,8 @@ to get the desired effect
 <script src="{{asset('admin-asset/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE -->
 <script src="{{asset('admin-asset/dist-1/js/adminlte.js')}}"></script>
-<!-- DataTables JavaScript -->
-{{--<script src="{{asset('admin-asset/bower_components/DataTables/media/js/jquery.dataTables.min.js')}}"></script>--}}
-{{--<script src="{{asset('admin-asset/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js')}}"></script>--}}
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('admin-asset/dist-1/js/demo.js')}}"></script>
 
 
 <!-- OPTIONAL SCRIPTS -->

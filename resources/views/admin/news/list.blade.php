@@ -5,15 +5,20 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">News
+                <h1 class="page-hea">News
                     <small>List</small>
+                    <a class="btn-success btn" href="">Add <i class="far fa-plus-square"></i></a>
                 </h1>
+                <div class="ml-auto text-right">
+
+                </div>
             </div>
             <!-- /.col-lg-12 -->
             @if(session('thongbao'))
                 <div class="alert-success alert">
                     {{session('thongbao')}}
                 </div>
+
             @endif
             <table class="table table-striped table-hover" id="dataTables-example">
                 <thead>
@@ -37,21 +42,21 @@
                         <p>{{$ns->TieuDe}}</p>
                         <img width="100px" src="{{asset("upload/tintuc/$ns->Hinh")}}" alt="">
                     </td>
-                    <td>{{$ns->TomTat}}</td>
+                    <td>{{strip_tags($ns->TomTat)}}</td>
                     {{--tro theo ten ham trong model lien ket--}}
                     <td>{{$ns->typeNews->categories->Ten}}</td>
                     <td>{{$ns->typeNews->Ten}}</td>
                     <td>{{$ns->SoLuotXem}}</td>
                     <td>
                         @if($ns->NoiBat == 0)
-                            <i class="text-danger far fa-times-circle"></i>
+                            <i class="text-success fas fa-check"></i>
                         @endif
                         @if($ns->NoiBat == 1)
-                            <i class="text-success far fa-check-circle"></i>
+                            <i class="text-danger fas fa-times"></i>
                         @endif
                     </td>
-                    <td class="center text-danger"><i class="far fa-trash-alt"></i><a style="margin-left: 3px" href="{{route('admin.news.delete',['id'=>$ns->id])}}">Delete</a></td>
-                    <td class="center text-info"><i class="far fa-edit"></i><a style="margin-left: 3px" class="ml-3" href="{{route('admin.news.edit',['id'=>$ns->id])}}">Edit</a></td>
+                    <td class="center text-danger"><i class="far fa-trash-alt"></i><a class="ml-1" href="{{route('admin.news.delete',['id'=>$ns->id])}}">Delete</a></td>
+                    <td class="center text-info"><i class="far fa-edit"></i><a class="ml-1" href="{{route('admin.news.edit',['id'=>$ns->id])}}">Edit</a></td>
                 </tr>
                 @endforeach
                 </tbody>

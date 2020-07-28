@@ -36,8 +36,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Link</label>
-                            <input type="text" class="form-control" name="link" placeholder="Please Enter Link">
+                            <label>Category</label>
+                            <input type="text" class="form-control" name="category" placeholder="Please Enter Category">
                         </div>
 
                         <div class="form-group">
