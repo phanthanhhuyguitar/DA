@@ -154,3 +154,7 @@ Route::get('the-loai/{id}/{TenKhongDau}.html', 'PagesController@category')->name
 Route::get('tin-tuc/{id}/{TenKhongDau}.html', 'PagesController@new')->name('new');
 Route::get('about', 'PagesController@about')->name('about');
 
+/*===========USERS============*/
+Route::get('dang-nhap', 'PagesController@getLogin')->name('user-login');
+Route::post('dang-nhap', 'PagesController@postLogin')->name('handle-user-login');
+

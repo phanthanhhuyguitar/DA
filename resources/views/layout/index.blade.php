@@ -22,6 +22,26 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
+
+    {{--LOGIN--}}
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="front-asset/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="front-asset/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="front-asset/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="front-asset/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="front-asset/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="front-asset/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="front-asset/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="front-asset/css/util.css">
+    <link rel="stylesheet" type="text/css" href="front-asset/css/main.css">
+    <!--===============================================================================================-->
 </head>
 
 <body>
@@ -93,6 +113,26 @@
 <!-- Jquery Plugins, main Jquery -->
 <script src="./assets/js/plugins.js"></script>
 <script src="./assets/js/main.js"></script>
+
+{{--JS-LOGIN--}}
+<!--===============================================================================================-->
+<script src="front-asset/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="front-asset/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="front-asset/vendor/bootstrap/js/popper.js"></script>
+<script src="front-asset/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="front-asset/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="front-asset/vendor/daterangepicker/moment.min.js"></script>
+<script src="front-asset/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="front-asset/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>
+
+
 @stack('javascript')
 </body>
 </html>

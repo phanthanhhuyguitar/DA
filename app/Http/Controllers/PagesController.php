@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Model\Categories;
 use App\Model\Slider;
 use App\Model\TypeNews;
 use App\Model\News;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
@@ -57,5 +59,32 @@ class PagesController extends Controller
     {
         $cate = Categories::find($id);
         return view('page.category', ['caTe'=>$cate]);
+    }
+
+    public function getLogin()
+    {
+        return view('page.login');
+    }
+
+    public function postLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required',
+            'pass' => 'required|min:3|max:32'
+        ],
+            [
+                'email.required' => 'Ban chua nhap Email',
+                'pass.required' => 'Ban chua nhap mat khau',
+                'pass.min' => 'Mat khau phai it nhat 3 ki tu',
+                'pass.max' => 'Mat khau phai toi da 32 ki tu',
+
+            ]);
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->pass])) {
+            $user = User::whereemail($request->email)->first();
+            Auth::login($user);
+            return redirect(route('home'));
+        } else{
+            return redirect(route('user-login'))->with('thongbao','Email or Password khong chinh xac');
+        }
     }
 }
