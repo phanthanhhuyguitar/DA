@@ -1,34 +1,30 @@
 @extends('layout.index')
 @section('content')
     <main>
+
         <!--================Blog Area =================-->
-        <section class="blog_area single-post-area section-padding">
+        <section class="blog_area single-post-area pt-3">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 posts-list">
+                        <div class="heading-news mb-30 pt-30">
+                            <h3>{{$news->TieuDe}}</h3>
+                            <h5>
+                                <a href="#">Emilly Blunt</a>
+                            </h5>
+                            <p class="date">{{$news->created_at}}</p>
+                        </div>
                         <div class="single-post">
                             <div class="feature-img">
-                                <img class="img-fluid" src="assets/img/blog/single_blog_1.png" alt="">
+                                <img class="img-fluid" src="upload/tintuc/{{$news->Hinh}}" alt="">
                             </div>
                             <div class="blog_details">
-                                <h2>Second divided from form fish beast made every of seas
-                                    all gathered us saying he our
-                                </h2>
+                                <h2>{{$news->TomTat}}</h2>
                                 <ul class="blog-info-link mt-3 mb-4">
                                     <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
                                     <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
                                 </ul>
-                                <p class="excert">
-                                    MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                                    should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                                    fraction of the camp price. However, who has the willpower
-                                </p>
-                                <p>
-                                    MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                                    should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                                    fraction of the camp price. However, who has the willpower to actually sit through a
-                                    self-imposed MCSE training. who has the willpower to actually
-                                </p>
+                                <p class="excert">{!! $news->NoiDung !!}</p>
                                 <div class="quote-wrapper">
                                     <div class="quotes">
                                         MCSE boot camps have its supporters and its detractors. Some people do not understand why you
@@ -37,17 +33,6 @@
                                         self-imposed MCSE training.
                                     </div>
                                 </div>
-                                <p>
-                                    MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                                    should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                                    fraction of the camp price. However, who has the willpower
-                                </p>
-                                <p>
-                                    MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                                    should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                                    fraction of the camp price. However, who has the willpower to actually sit through a
-                                    self-imposed MCSE training. who has the willpower to actually
-                                </p>
                             </div>
                         </div>
                         <div class="navigation-top">
@@ -120,7 +105,8 @@
                             </div>
                         </div>
                         <div class="comments-area">
-                            <h4>05 Comments</h4>
+                            <h4>{{count($news->comment)}} Comments</h4>
+                            @foreach($news->comment as $nsc)
                             <div class="comment-list">
                                 <div class="single-comment justify-content-between d-flex">
                                     <div class="user justify-content-between d-flex">
@@ -129,15 +115,14 @@
                                         </div>
                                         <div class="desc">
                                             <p class="comment">
-                                                Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                                Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                                                {{$nsc->NoiDung}}
                                             </p>
                                             <div class="d-flex justify-content-between">
                                                 <div class="d-flex align-items-center">
                                                     <h5>
-                                                        <a href="#">Emilly Blunt</a>
+                                                        <a href="#">{{$nsc->user->name}}</a>
                                                     </h5>
-                                                    <p class="date">December 4, 2017 at 3:12 pm </p>
+                                                    <p class="date">{{$nsc->created_at}}</p>
                                                 </div>
                                                 <div class="reply-btn">
                                                     <a href="#" class="btn-reply text-uppercase">reply</a>
@@ -147,58 +132,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="comment-list">
-                                <div class="single-comment justify-content-between d-flex">
-                                    <div class="user justify-content-between d-flex">
-                                        <div class="thumb">
-                                            <img src="assets/img/comment/comment_2.png" alt="">
-                                        </div>
-                                        <div class="desc">
-                                            <p class="comment">
-                                                Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                                Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                            </p>
-                                            <div class="d-flex justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <h5>
-                                                        <a href="#">Emilly Blunt</a>
-                                                    </h5>
-                                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                                </div>
-                                                <div class="reply-btn">
-                                                    <a href="#" class="btn-reply text-uppercase">reply</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="comment-list">
-                                <div class="single-comment justify-content-between d-flex">
-                                    <div class="user justify-content-between d-flex">
-                                        <div class="thumb">
-                                            <img src="assets/img/comment/comment_3.png" alt="">
-                                        </div>
-                                        <div class="desc">
-                                            <p class="comment">
-                                                Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                                Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                            </p>
-                                            <div class="d-flex justify-content-between">
-                                                <div class="d-flex align-items-center">
-                                                    <h5>
-                                                        <a href="#">Emilly Blunt</a>
-                                                    </h5>
-                                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                                </div>
-                                                <div class="reply-btn">
-                                                    <a href="#" class="btn-reply text-uppercase">reply</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                         <div class="comment-form">
                             <h4>Leave a Reply</h4>
@@ -249,57 +183,20 @@
                                             type="submit">Search</button>
                                 </form>
                             </aside>
-                            <aside class="single_sidebar_widget post_category_widget">
-                                <h4 class="widget_title">Thể loại</h4>
-                                <ul class="list cat-list">
-                                    @foreach($cate as $ct)
-                                    <li>
-                                        <a href="#" class="d-flex">
-                                            <p>{{$ct->Ten}}</p>
-                                            <p>({{count($ct->typeNews)}})</p>
-                                        </a>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </aside>
+                            @include('layout.sidebar')
                             <aside class="single_sidebar_widget popular_post_widget">
-                                <h3 class="widget_title">Recent Post</h3>
-                                <div class="media post_item">
-                                    <img src="assets/img/post/post_1.png" alt="post">
+                                <h3 class="widget_title">Tin gần đây</h3>
+                                @foreach($recent as $rc)
+                                    <div class="media post_item">
+                                    <img width="80px" src="upload/tintuc/{{$rc->Hinh}}" alt="post">
                                     <div class="media-body">
                                         <a href="single-blog.html">
-                                            <h3>From life was you fish...</h3>
+                                            <h3>{{substr($rc->TieuDe, 0, 50)}}</h3>
                                         </a>
-                                        <p>January 12, 2019</p>
+                                        <p>{{$rc->created_at}}</p>
                                     </div>
                                 </div>
-                                <div class="media post_item">
-                                    <img src="assets/img/post/post_2.png" alt="post">
-                                    <div class="media-body">
-                                        <a href="single-blog.html">
-                                            <h3>The Amazing Hubble</h3>
-                                        </a>
-                                        <p>02 Hours ago</p>
-                                    </div>
-                                </div>
-                                <div class="media post_item">
-                                    <img src="assets/img/post/post_3.png" alt="post">
-                                    <div class="media-body">
-                                        <a href="single-blog.html">
-                                            <h3>Astronomy Or Astrology</h3>
-                                        </a>
-                                        <p>03 Hours ago</p>
-                                    </div>
-                                </div>
-                                <div class="media post_item">
-                                    <img src="assets/img/post/post_4.png" alt="post">
-                                    <div class="media-body">
-                                        <a href="single-blog.html">
-                                            <h3>Asteroids telescope</h3>
-                                        </a>
-                                        <p>01 Hours ago</p>
-                                    </div>
-                                </div>
+                                @endforeach
                             </aside>
                             <aside class="single_sidebar_widget tag_cloud_widget">
                                 <h4 class="widget_title">Tag Clouds</h4>

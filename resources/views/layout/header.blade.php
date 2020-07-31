@@ -51,7 +51,6 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="{{route('home')}}">Trang chủ</a></li>
-                                    <li><a href="about.html">about</a></li>
                                     <li><a href="">Thể loại</a>
 
 
@@ -65,7 +64,7 @@
 
 
                                     </li>
-                                    <li><a href="{{route('new')}}">Tin mới</a></li>
+                                    <li><a href="">Tin mới</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="submenu">
                                             <li><a href="{{route('blog')}}">Blog</a></li>
@@ -74,6 +73,7 @@
                                         </ul>
                                     </li>
                                     <li><a href="{{route('contact')}}">Liên hệ</a></li>
+                                    <li><a href="{{route('about')}}">about</a></li>
                                 </ul>
                             </nav>
                         </div>

@@ -41,9 +41,16 @@ class PagesController extends Controller
         return view('page.type_news', ['tyPe'=>$type, 'news'=>$new]);
     }
 
-    public function new()
+    public function new($id)
     {
-        return view('page.latest_news');
+        $new = News::find($id);
+        $recentPost = News::where('NoiBat', 0)->orderBy('created_at', 'desc')->take(4)->get();
+        return view('page.latest_news', ['news'=>$new, 'recent'=>$recentPost]);
+    }
+
+    public function about()
+    {
+        return view('page.about');
     }
 
     public function category($id)

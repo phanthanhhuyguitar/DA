@@ -151,5 +151,6 @@ Route::get('blog', 'PagesController@blog')->name('blog');
 Route::get('lien-he', 'PagesController@contact')->name('contact');
 Route::get('loai-tin/{id}/{TenKhongDau}.html', 'PagesController@typeNews')->name('typeNews');
 Route::get('the-loai/{id}/{TenKhongDau}.html', 'PagesController@category')->name('category');
-Route::get('tin-tuc', 'PagesController@new')->name('new');
+Route::get('tin-tuc/{id}/{TenKhongDau}.html', 'PagesController@new')->name('new');
+Route::get('about', 'PagesController@about')->name('about');
 
