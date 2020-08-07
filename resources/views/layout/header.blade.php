@@ -82,10 +82,12 @@
                         <div class="header-right f-right d-none d-lg-block">
                             <!-- Heder social -->
                             <ul class="header-social">
-                                <li><a href="https://www.fb.com/sai4ull"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li> <a href="#"><i class="fab fa-youtube"></i></a></li>
+                                @if(Auth::user())
+                                    <li><i class="text-white far fa-user-circle"></i><a href="">{{Auth::user()->name}}</a></li>
+                                    <li><a href="{{route('user-logout')}}"><i class="far fa-arrow-alt-circle-left"></i></a></li>
+                                @else
+                                    <li><a href="{{route('user-login')}}">ĐĂNG NHẬP</a></li>
+                                @endif
                             </ul>
                             <!-- Search Nav -->
                             <div class="nav-search search-switch">

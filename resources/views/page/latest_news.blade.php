@@ -19,7 +19,7 @@
                                 <img class="img-fluid" src="upload/tintuc/{{$news->Hinh}}" alt="">
                             </div>
                             <div class="blog_details">
-                                <h2>{{$news->TomTat}}</h2>
+                                <h2>{{strip_tags($news->TomTat)}}</h2>
                                 <ul class="blog-info-link mt-3 mb-4">
                                     <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
                                     <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
@@ -134,29 +134,19 @@
                             </div>
                             @endforeach
                         </div>
-                        <div class="comment-form">
+                        @if(Auth::user())
+                            <div class="comment-form">
                             <h4>Leave a Reply</h4>
-                            <form class="form-contact comment_form" action="#" id="commentForm">
+                                @if(session('thongbao'))
+                                    {{session('thongbao')}}
+                                @endif
+                            <form method="post" class="form-contact comment_form" action="comment/{{$news->id}}" id="commentForm">
+                                @csrf
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
                               <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
                                         placeholder="Write Comment"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input class="form-control" name="name" id="name" type="text" placeholder="Name">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input class="form-control" name="email" id="email" type="email" placeholder="Email">
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <input class="form-control" name="website" id="website" type="text" placeholder="Website">
                                         </div>
                                     </div>
                                 </div>
@@ -165,6 +155,7 @@
                                 </div>
                             </form>
                         </div>
+                        @endif
                     </div>
                     <div class="col-lg-4">
                         <div class="blog_right_sidebar">

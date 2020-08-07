@@ -113,7 +113,7 @@
                                                         @endif
                                                     </div>
                                                     <div class="whates-caption">
-                                                        <h4><a href="latest_news.html">{{$firstNew['TieuDe']}}</a></h4>
+                                                        <h4><a href="tin-tuc/{{$firstNew['id']}}/{{$firstNew['TieuDeKhongDau']}}.html">{{$firstNew['TieuDe']}}</a></h4>
                                                         <span>by Alice cloe   -   {{$firstNew['created_at']}}</span>
                                                         <p>{{strip_tags($firstNew['TomTat'])}}</p>
                                                     </div>
@@ -132,7 +132,7 @@
                                                             </div>
                                                             <div class="whats-right-cap">
                                                                 <span class="colorb">{{$new->typeNews['Ten']}}</span>
-                                                                <h4><a href="latest_news.html">{{strip_tags($new['TomTat'])}}</a></h4>
+                                                                <h4><a href="">{{strip_tags($new['TomTat'])}}</a></h4>
                                                                 <p>{{$new['created_at']}}</p>
                                                             </div>
                                                         </div>

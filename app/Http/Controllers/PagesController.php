@@ -19,6 +19,10 @@ class PagesController extends Controller
         $slide = Slider::all();
         view()->share('cate',$cate);
         view()->share('slide',$slide);
+
+        if(Auth::check()){
+            view()->share('customer', Auth::user());//tra ve doi tuong nguoi dung dang nhap truyen sang bien nguoi dung
+        }
     }
 
     public function home()
@@ -86,5 +90,20 @@ class PagesController extends Controller
         } else{
             return redirect(route('user-login'))->with('thongbao','Email or Password khong chinh xac');
         }
+    }
+    public function getLogout()
+    {
+        Auth::logout();
+        return redirect(route('home'));
+    }
+
+    public function getUser()
+    {
+        return view('page.user');
+    }
+
+    public function postUser()
+    {
+
     }
 }

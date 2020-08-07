@@ -4,20 +4,7 @@
 
     <div class="limiter">
         <div class="container-login100">
-            <div class="wrap-login100 p-t-90 p-b-30">
-                @if(count($errors)>0)
-                    <div class="alert alert-danger">
-                        @foreach($errors->all() as $err)
-                            {{$err}}<br>
-                        @endforeach
-                    </div>
-                @endif
-
-                @if(session('thongbao'))
-                    <div class="alert alert-danger">
-                         {{session('thongbao')}}
-                    </div>
-                @endif
+            <div class="wrap-login100 p-t-30 p-b-30">
                 <form class="login100-form validate-form" action="{{route('handle-user-login')}}" method="post">
                     @csrf
 					<span class="login100-form-title p-b-40">
@@ -35,8 +22,19 @@
                             Login with Twitter
                         </a>
                     </div>
-
-                    <div class="text-center p-t-55 p-b-30">
+                    @if(count($errors)>0)
+                        <div class="alert alert-danger mt-10">
+                            @foreach($errors->all() as $err)
+                                {{$err}}<br>
+                            @endforeach
+                        </div>
+                    @endif
+                    @if(session('thongbao'))
+                        <div class="alert alert-danger mt-10">
+                            {{session('thongbao')}}
+                        </div>
+                    @endif
+                    <div class="text-center p-t-20 p-b-20">
 						<span class="txt1">
 							Login with email
 						</span>
