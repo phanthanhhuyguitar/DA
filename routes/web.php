@@ -160,5 +160,7 @@ Route::post('dang-nhap', 'PagesController@postLogin')->name('handle-user-login')
 Route::get('dang-xuat', 'PagesController@getLogout')->name('user-logout');
 Route::get('nguoi-dung', 'PagesController@getUser')->name('user-info');
 Route::post('nguoi-dung', 'PagesController@postUser')->name('handle-user-info');
+Route::get('dang-ky', 'PagesController@getSignUp')->name('user-sign-up');
+Route::post('dang-ky', 'PagesController@postSignUp')->name('handle-user-sign-up');
 
 Route::post('comment/{id}', 'Admin\CommentController@postController');

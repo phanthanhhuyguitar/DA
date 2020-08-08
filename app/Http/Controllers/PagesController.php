@@ -102,8 +102,73 @@ class PagesController extends Controller
         return view('page.user');
     }
 
-    public function postUser()
+    public function postUser(Request $request)
     {
+        $this->validate($request, [
+            'nameUser' => 'required|min:3',
+        ],
+            [
+                'nameUser.required' => 'Ban chua nhap ten nguoi dung',
+                'nameUser.min' => 'Ten phai it nhat 3 ky tu',
+            ]);
 
+        $user = Auth::user();
+        $user->name = $request->nameUser;
+        if($request->changePassword == "on"){
+
+            $this->validate($request, [
+                'passUser' => 'required|min:3|max:32',
+                'againPass' => 'required|same:passUser'
+            ],
+                [
+                    'passUser.required' => 'Ban chua nhap mat khau',
+                    'passUser.min' => 'Mat khau phai it nhat 3 ki tu',
+                    'passUser.max' => 'Mat khau phai toi da 32 ki tu',
+                    'againPass.required' => 'Ban chua nhap lai mat khau',
+                    'againPass.same' => 'Hai mat khau khong trung nhau'
+
+                ]);
+
+            $user->password = bcrypt($request->passUser); //bcrypt: ma hoa mat khau
+        }
+        $user->save();
+        return redirect(route('user-info'))->with('thongbao', 'Sua thanh cong');
+    }
+
+    public function getSignUp()
+    {
+        return view('page.sign_up');
+    }
+
+    public function postSignUp(Request $request)
+    {
+        $this->validate($request, [
+            'nameU' => 'required|min:3',
+            'emailU' => 'required|email|unique:users,email',
+            'pass' => 'required|min:3|max:32',
+            'passAgain' => 'required|same:pass'
+        ],
+            [
+                'nameU.required' => 'Ban chua nhap ten nguoi dung',
+                'nameU.min' => 'Ten phai it nhat 3 ky tu',
+                'emailU.required' => 'Ban chua nhap email',
+                'emailU.email' => 'Ban phai nhap dung dinh dang email',
+                'emailU.unique' => 'Email da ton tai',
+                'pass.required' => 'Ban chua nhap mat khau',
+                'pass.min' => 'Mat khau phai it nhat 3 ki tu',
+                'pass.max' => 'Mat khau phai toi da 32 ki tu',
+                'passAgain.required' => 'Ban chua nhap lai mat khau',
+                'passAgain.same' => 'Hai mat khau khong trung nhau'
+
+            ]);
+
+        $user = new User();
+        $user->name = $request->nameU;
+        $user->email = $request->emailU;
+        $user->password = bcrypt($request->pass); //bcrypt: ma hoa mat khau
+        $user->level = 0;
+        $user->save();
+
+        return redirect(route('user-sign-up'))->with('thongbao','Them tai khoan thanh cong');
     }
 }
