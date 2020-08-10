@@ -171,4 +171,11 @@ class PagesController extends Controller
 
         return redirect(route('user-sign-up'))->with('thongbao','Them tai khoan thanh cong');
     }
+
+    public function search(Request $request)
+    {
+        $key = $request->keySearch;
+        $new = News::where('TieuDe','like',"%$key%")->orwhere('TomTat','like',"%$key%")->orwhere('NoiDung', 'like',"%$key%")->take(30)->paginate(5);
+        return view('page.search', ['new' => $new, 'key' => $key]);
+    }
 }

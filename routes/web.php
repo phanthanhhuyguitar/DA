@@ -164,3 +164,6 @@ Route::get('dang-ky', 'PagesController@getSignUp')->name('user-sign-up');
 Route::post('dang-ky', 'PagesController@postSignUp')->name('handle-user-sign-up');
 
 Route::post('comment/{id}', 'Admin\CommentController@postController');
+
+
+Route::post('tim-kiem', 'PagesController@search')->name('search');
