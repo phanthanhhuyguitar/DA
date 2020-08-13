@@ -50,7 +50,7 @@
                         <div class="main-menu d-none d-md-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="{{route('home')}}">Trang chủ</a></li>
+                                    <li><a href="{{route('home.page')}}">Trang chủ</a></li>
                                     <li><a href="">Thể loại</a>
 
 
@@ -82,7 +82,7 @@
                         <div class="header-right f-right d-none d-lg-block">
                             <!-- Heder social -->
                             <ul class="header-social">
-                                @if(Auth::user())
+                                @if(!empty(Auth::user()))
                                     <li><i class="text-white far fa-user-circle"></i><a href="{{route('user-info')}}">{{Auth::user()->name}}</a></li>
                                     <li><a href="{{route('user-logout')}}"><i class="far fa-arrow-alt-circle-left"></i></a></li>
                                 @else

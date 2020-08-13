@@ -94,7 +94,7 @@ class PagesController extends Controller
     public function getLogout()
     {
         Auth::logout();
-        return redirect(route('home'));
+        return redirect(route('user-login'));
     }
 
     public function getUser()

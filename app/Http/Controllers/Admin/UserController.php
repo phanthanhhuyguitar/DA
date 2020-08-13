@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Model\Slider;
-use App\User;
+use App\Model\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;//dung login laravel
@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function getList()
     {
-        $user  = User::paginate(5);
+        $user  = Customer::paginate(5);
         $data = [];
         $data['user'] = $user;
 
@@ -47,7 +47,7 @@ class UserController extends Controller
 
         ]);
 
-        $user = new User();
+        $user = new Customer();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password); //bcrypt: ma hoa mat khau
@@ -60,7 +60,7 @@ class UserController extends Controller
 
     public function getEdit($id)
     {
-        $user = User::find($id);
+        $user = Customer::find($id);
         $data = [];
         $data['user'] = $user;
         return view('admin.user.edit', $data);
@@ -76,7 +76,7 @@ class UserController extends Controller
                 'name.min' => 'Ten phai it nhat 3 ky tu',
             ]);
 
-        $user = User::find($id);
+        $user = Customer::find($id);
         $user->name = $request->name;
         $user->level = $request->power;
 
@@ -104,7 +104,7 @@ class UserController extends Controller
 
     public function getDelete($id)
     {
-        $user = User::find($id);
+        $user = Customer::find($id);
         $user->delete();
 
         return redirect(route('admin.user.list'))->with('thongbao','Xoa thanh cong');
@@ -128,7 +128,7 @@ class UserController extends Controller
             'password.max' => 'Mat khau toi da 32 ki tu',
         ]);
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            $user = User::whereemail($request->email)->first();
+            $user = Customer::whereemail($request->email)->first();
             Auth::login($user);
             return redirect(route('admin.dashboard'));
         } else{

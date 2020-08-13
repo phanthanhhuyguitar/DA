@@ -13,8 +13,8 @@ class Comment extends Model
         return $this->belongsTo('App\Model\News','idTinTuc','id');
     }
 
-    public function user()
+    public function customer()
     {
-        return $this->belongsTo('App\User','idUser','id');
+        return $this->belongsTo('App\Model\Customer','idUser','id');
     }
 }

@@ -146,7 +146,7 @@ Route::group([
 });
 
 /*===========PAGES============*/
-Route::get('trang-chu', 'PagesController@home')->name('home');
+Route::get('trang-chu', 'PagesController@home')->name('home.page');
 Route::get('blog', 'PagesController@blog')->name('blog');
 Route::get('lien-he', 'PagesController@contact')->name('contact');
 Route::get('loai-tin/{id}/{TenKhongDau}.html', 'PagesController@typeNews')->name('typeNews');
@@ -167,3 +167,11 @@ Route::post('comment/{id}', 'Admin\CommentController@postController');
 
 
 Route::post('tim-kiem', 'PagesController@search')->name('search');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
+

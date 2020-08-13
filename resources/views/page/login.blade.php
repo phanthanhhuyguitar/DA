@@ -12,7 +12,7 @@
 					</span>
 
                     <div>
-                        <a href="#" class="btn-login-with bg1 m-b-10">
+                        <a href="{{ url('auth/redirect/facebook') }}" class="btn-login-with bg1 m-b-10">
                             <i class="fa fa-facebook-official"></i>
                             Login with Facebook
                         </a>
@@ -64,7 +64,7 @@
 							Don’t have an account?
 						</span>
 
-                        <a href="#" class="txt3 bo1 hov1">
+                        <a href="{{route('user-sign-up')}}" class="txt3 bo1 hov1">
                             Sign up now
                         </a>
                     </div>
